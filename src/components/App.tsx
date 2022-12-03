@@ -1,7 +1,49 @@
 import '../styles/App.css';
+import React from 'react'
 import { Board } from './Board';
+import { Score } from './Score';
+import { IState} from '../interfaces/interface';
+import { Winner } from './Winner';
+
+
+const initialState: IState = {
+	turnoInicial: 'X',
+	ultimoGanador: '',
+	turno: 'X',
+	celdas: Array(9).fill(null),
+	ganador: false,
+	puntaje: {
+		'X': 0,
+		'O': 0,
+	},
+	numberRound: 0,
+}
 
 function App() {
+	//Ref al button
+	const restartButtonRef = React.useRef<HTMLButtonElement>(null);
+	const [estado, setEstado] = React.useState<IState>(initialState);
+	
+	const reiniciarJuego = () => {
+		setEstado(initialState);
+	}
+
+
+	React.useEffect(() => {
+		if (estado.celdas.every((celda) => celda === null) && estado.numberRound === 0) {
+			//Add visibility hidden to the button
+			//console.log(restartButtonRef.current);
+			if (restartButtonRef.current) {
+				restartButtonRef.current.style.visibility = 'hidden';
+			}
+		} else {
+			//Add visibility visible to the button
+			if (restartButtonRef.current) {
+				restartButtonRef.current.style.visibility = 'visible';
+			}
+		}
+	}, [estado.celdas, estado.numberRound]);
+
 	return (
 		<div className="App">
 			<header className="App-header">
@@ -9,33 +51,20 @@ function App() {
 			</header>
 			<main className='main'>
 
-				<div className='score'>
-					<div className='player'>
-						<div className='specific_player'>Me</div>
-						<span className='puntaje'>0</span>
-					</div>
-					<span>:</span>
-					<div className='player'>
-						<div className='specific_player'>AI</div>
-						<span className='puntaje'>0</span>
-					</div>
-				</div>
-				<Board />
-
+				<Score puntaje={estado.puntaje}/>
+				<Board estado={estado} setEstado={setEstado}/>
 
 				<div className='turns_container'>
-					<div className='turn'>Your turn</div>
-					<div className='current_turn turn'>AI turn</div>
+					<div className={(estado.turno === 'X' ? 'current_turn' : '' )+' turn'}>Your turn</div>
+					<div className={(estado.turno === 'O' ? 'current_turn' : '' )+' turn'}>AI turn</div>
 				</div>
+
 				<div className='buttons_container'>
-					<button className='reset_game'>Start Game</button>
+					<button className='reset_game' onClick={reiniciarJuego} ref={restartButtonRef}>Restart Game</button>
 				</div>
 
 			</main>
-			<section className='winner_container'>
-				<h2 className='message'><span className='winner'>AI</span> has won!</h2>
-				<button className='next_round_button'>Go to the next round</button>
-			</section>
+			{estado.ganador && <Winner estado={estado} setEstado={setEstado}/>}
 			<footer className='footer'>
 				<div>Created by <a target={"_blank"} href="https://github.com/ARTEAGA1811" rel="noreferrer">Art3</a></div>
 			</footer>

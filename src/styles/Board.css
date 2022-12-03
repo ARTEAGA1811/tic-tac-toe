@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    height: 100%;
 }
 
 .board{
@@ -11,9 +12,13 @@
     margin: 2rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    
     gap: 0.3rem;
     max-width: 320px;
-    place-content: center;
+    /* place-content: center; */
+    /* height: 100%; */
+
 }
 
 .board button{
@@ -25,6 +30,7 @@
     /* border-radius: 0.5rem; */
     padding: 0.5rem;
     cursor: pointer;
+    min-height: 3.5rem;
 }
 
 .board button:hover{

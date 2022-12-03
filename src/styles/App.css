@@ -80,9 +80,14 @@
   border-radius: 0.5rem;
   cursor: pointer;
   font-weight: bold;
-  font-size: 0.8rem
+  font-size: 0.8rem;
+
+  /* visibility: hidden; */
 }
 
+.reset_game:hover{
+  background-color: #33d3ff;
+}
 .winner_container{
   display: flex;
   justify-content: center;
@@ -90,7 +95,7 @@
   flex-direction: column;
   gap: 0.8rem;
   margin-top: 2rem;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 .winner_container .winner{
   color: #61dafb;
@@ -159,7 +164,7 @@
   }
 
   .board_container .board{
-    max-width: fit-content;
+    /* max-width: fit-content; */
     min-width: 400px;
   }
 
