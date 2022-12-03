@@ -3,11 +3,12 @@
   /* background: linear-gradient(45deg, #282c34 30%, #a1aabd 90%); */
   background-color: #282c34;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  height: max-content;
 }
 
 .App-header {
-  padding: 0.5rem;
+  padding: 1.4rem;
   text-align: center;
   color: #61dafb;
   margin-bottom: 0.5rem;
@@ -79,18 +80,54 @@
   border-radius: 0.5rem;
   cursor: pointer;
   font-weight: bold;
+  font-size: 0.8rem
+}
+
+.winner_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  visibility: hidden;
+}
+.winner_container .winner{
+  color: #61dafb;
+}
+.winner_container .message{
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fbfdfe;
+}
+
+.winner_container .next_round_button{
+  background-color: #ff0080;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: large;
+}
+
+.winner_container .next_round_button:hover{
+  background-color: #ff00a0;
 }
 
 .footer{
   /* SEt to the end of the page */
   color: white;
-  position: absolute;
+  /* position: absolute;
   bottom: 0;
-  right: 0;
-  margin-right: 0.5rem;
+  right: 0; */
+  /* margin-right: 0.5rem; */
   display: flex;
   justify-content: center;
-  font-size: medium;
+  font-size: small;
+  margin-top: 2.4rem;
+  padding-bottom: 2.4rem;
 }
 
 .footer a{
@@ -102,16 +139,23 @@
 
 /* Se dividen las partes a partir del tamaño de una tablet */
 @media (min-width: 768px) {
-  .part_one{
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
-    gap: 4rem;
+  .main{
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+      "a_score a_board a_board a_board"
+      "a_button_game a_turns a_turns a_turns";
+    
+    column-gap: 3rem;
   }
 
-  .part_one .board_container{
-    width: auto;
+  .score{
+    grid-area: a_score;
+    font-size: xx-large;
+  }
+
+  .board_container{
+    grid-area: a_board;
   }
 
   .board_container .board{
@@ -119,15 +163,13 @@
     min-width: 400px;
   }
 
-  .part_one .score{
-    /* width: 50%; */
-    font-size: xx-large;
+  .buttons_container{
+    grid-area: a_button_game;
+    
   }
 
-  .part_two{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
+  .turns_container{
+    grid-area: a_turns;
+    margin-bottom: 0;
   }
 }

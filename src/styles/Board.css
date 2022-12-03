@@ -26,3 +26,20 @@
     padding: 0.5rem;
     cursor: pointer;
 }
+
+.board button:hover{
+    background-color: #3e4148;
+}
+
+.board_container .board .x_selected{
+    color: #61dafb;
+}
+
+.board_container .board .o_selected{
+    color: #ff0080;
+}
+
+.board_container .board .cell_winner{
+    background-color: #144654;
+    background-color: #697489;
+}
