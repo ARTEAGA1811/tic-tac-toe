@@ -1,0 +1,28 @@
+.board_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.board{
+    background-color: white;
+    width: 100%;
+    border: none;
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.3rem;
+    max-width: 320px;
+    place-content: center;
+}
+
+.board button{
+    background-color: #282c34;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    border: none;
+    /* border-radius: 0.5rem; */
+    padding: 0.5rem;
+    cursor: pointer;
+}
