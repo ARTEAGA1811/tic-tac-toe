@@ -15,10 +15,11 @@ const Winner = ({ estado, setEstado }: IWinner) => {
         })
     }
 
+
     return (
         <section className='winner_container'>
             {(estado.ultimoGanador === 'X' || estado.ultimoGanador === 'O') && (
-                <h2 className='message'><span className='winner'>{estado.ultimoGanador === 'X' ? 'You' : 'AI'}</span> has won!</h2>
+                <h2 className='message'><span className='winner'>{estado.ultimoGanador === 'X' ? 'You' : 'AI'}</span> {(estado.ultimoGanador === 'X') ? 'have' : 'has'} won!</h2>
             )}
             {(estado.ultimoGanador === '') && (
                 <h2 className='message'>It's a Draw!</h2>

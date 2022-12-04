@@ -4,7 +4,7 @@ const Score = (props: {puntaje: IPuntaje}) => {
     return (
         <div className='score'>
             <div className='player'>
-                <div className='specific_player'>Me</div>
+                <div className='specific_player'>You</div>
                 <span className='puntaje'>{props.puntaje.X}</span>
             </div>
             <span>:</span>
