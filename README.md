@@ -11,7 +11,7 @@
   <h3 align="center">TIC TAC TOE Game</h3>
 
   <p align="center">
-    Play Tic Tac Toe with your an AI opponent!
+    Play Tic Tac Toe with an AI opponent!
     <br />
   </p>
 </div>
@@ -38,7 +38,7 @@ This is a Tic Tac Toe game that you can play against an AI opponent. The AI oppo
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Just open this <a href="https://tictactoe-arteaga1811.vercel.app/"> 🔗link 🔗</a> and start playing: 
+Just open this <a target="_BLANK" href="https://tic-tac-toe-three-steel.vercel.app/"> 🔗link 🔗</a> and start playing: 
 
 
 <!-- CONTRIBUTING -->
